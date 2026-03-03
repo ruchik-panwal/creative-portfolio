@@ -25,7 +25,7 @@ export default function WorkSection() {
 // Shwing Off
 function ShowWork() {
   const [reelNo, setReelNo] = useState(2);
-  
+
   return (
     <div className="flex-1 flex flex-col lg:flex-row w-full gap-5 lg:overflow-hidden sm:p-2 lg:p-0">
       <div className="flex-1 flex flex-col gap-2 items-center bg-secondaryBlack rounded-[20px] p-4 min-h-120 lg:h-full">
@@ -45,17 +45,20 @@ function ShowWork() {
 
 function ReelSection({ reels, reelNo, setReelNo }) {
   return (
-    <div className="flex flex-col gap-1 mt-3 w-full h-full overflow-y-scroll select-none cursor-pointer">
-      {reels.map((reel, ind) => {
-        return (
-          <ReelButton
-            key={ind}
-            reel={reel}
-            onClick={() => setReelNo(ind)}
-            reelNo={reelNo}
-          />
-        );
-      })}
+    /* 1. Added flex-1 to take up available space
+       2. Added min-h-0 to allow the container to be smaller than its content (crucial for scroll)
+       3. Changed to overflow-y-auto for a cleaner look
+    */
+    <div className="flex flex-col gap-2 mt-3 w-full flex-1 min-h-0 overflow-y-auto select-none">
+      {reels.map((reel, ind) => (
+        <ReelButton
+          key={ind}
+          reel={reel}
+          ind={ind}
+          onClick={() => setReelNo(ind)}
+          reelNo={reelNo}
+        />
+      ))}
     </div>
   );
 }
