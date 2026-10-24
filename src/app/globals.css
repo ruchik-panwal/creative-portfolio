@@ -27,3 +27,7 @@ body {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
   letter-spacing: -1px;
 }
+
+button{
+  cursor: pointer;
+}

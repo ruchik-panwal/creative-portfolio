@@ -31,7 +31,14 @@ const Reels = [
     description:
       "Aenean et suscipit mi. Etiam et risus vel neque aliquam varius. Etiam sed elit imperdiet, mattis est sed, efficitur velit. Suspendisse luctus, ligula vitae sagittis lacinia, quam lorem ornare magna, euismod posuere leo nisi ut quam. Pellentesque sem magna, faucibus ut mi ac, bibendum porta elit. Mauris ornare rutrum velit, id varius elit pellentesque at. Ut dictum, ante et vehicula euismod, velit libero sagittis augue, eget dignissim libero enim vitae arcu. In tempor enim sem, non viverra dui venenatis in. Vestibulum finibus consectetur blandit. Cras vel justo sed ligula malesuada aliquet. Duis non imperdiet ipsum. Duis porttitor purus et lorem faucibus tincidunt. .",
   },
-  
+  {
+    title: "Idea Hackathon Phase Two ",
+    hostId: "zX0Eb59J",
+    link: "https://www.instagram.com/csikjsce/reel/zX0Eb59J/",
+    selected: false,
+    description:
+      "Aenean et suscipit mi. Etiam et risus vel neque aliquam varius. Etiam sed elit imperdiet, mattis est sed, efficitur velit. Suspendisse luctus, ligula vitae sagittis lacinia, quam lorem ornare magna, euismod posuere leo nisi ut quam. Pellentesque sem magna, faucibus ut mi ac, bibendum porta elit. Mauris ornare rutrum velit, id varius elit pellentesque at. Ut dictum, ante et vehicula euismod, velit libero sagittis augue, eget dignissim libero enim vitae arcu. In tempor enim sem, non viverra dui venenatis in. Vestibulum finibus consectetur blandit. Cras vel justo sed ligula malesuada aliquet. Duis non imperdiet ipsum. Duis porttitor purus et lorem faucibus tincidunt. .",
+  },
 ];
 
 export default Reels;

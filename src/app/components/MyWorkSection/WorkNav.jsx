@@ -1,5 +1,5 @@
 export default function WorkNav({ sectionSetter, section }) {
-  const btns = ["Content Creation", "Graphic Design", "Ui/Ux"];
+  const btns = ["Content Creation", "Graphic Design", "Web Development"];
 
   return (
     <div className="shrink-0 flex justify-center items-center gap-5 h-[8vh] bg-secondaryBlack w-full rounded-[20px]">
