@@ -62,7 +62,7 @@ export default function WorkSection() {
 
 // Showing Off
 function ShowWork({ targetSection, renderSection, setRenderSection }) {
-  const [reelNo, setReelNo] = useState(2);
+  const [reelNo, setReelNo] = useState(3);
   const sections = ["Content Creation", "Graphic Design", "Web Development"];
   
   const textRef = useRef(null);
