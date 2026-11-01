@@ -1,0 +1,116 @@
+[
+  {
+    "location": "./graphics/Email/CodematesMail.png",
+    "size_bytes": "2.72017MB",
+    "width": "756",
+    "height": "1850"
+  },
+  {
+    "location": "./graphics/Email/CouncilRevealMail.png",
+    "size_bytes": "9.66891MB",
+    "width": "1620",
+    "height": "8538"
+  },
+  {
+    "location": "./graphics/Email/FyRepMail.png",
+    "size_bytes": "1.81379MB",
+    "width": "1080",
+    "height": "2109"
+  },
+  {
+    "location": "./graphics/Email/GitWorkshopMail.png",
+    "size_bytes": "2.72125MB",
+    "width": "756",
+    "height": "1850"
+  },
+  {
+    "location": "./graphics/Email/IdeaEmail.png",
+    "size_bytes": "1.24262MB",
+    "width": "1080",
+    "height": "5482"
+  },
+  {
+    "location": "./graphics/Logos/ConcepIdea4.png",
+    "size_bytes": "22736B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Logos/Concept.png",
+    "size_bytes": "19440B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Logos/ConceptIdea.png",
+    "size_bytes": "45767B",
+    "width": "2138",
+    "height": "1385"
+  },
+  {
+    "location": "./graphics/Logos/ConceptIdea2.png",
+    "size_bytes": "21891B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Logos/ConceptIdea3.png",
+    "size_bytes": "28199B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Logos/ConceptInnosphere.png",
+    "size_bytes": "18430B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Logos/ConceptVortex.png",
+    "size_bytes": "26003B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Logos/IdeaMain.png",
+    "size_bytes": "77869B",
+    "width": "1445",
+    "height": "848"
+  },
+  {
+    "location": "./graphics/Posters/A4 - 6.png",
+    "size_bytes": "40238B",
+    "width": "595",
+    "height": "842"
+  },
+  {
+    "location": "./graphics/Posters/Frame 60.png",
+    "size_bytes": "151042B",
+    "width": "1080",
+    "height": "1080"
+  },
+  {
+    "location": "./graphics/Posters/GeminiCsi.png",
+    "size_bytes": "97084B",
+    "width": "595",
+    "height": "842"
+  },
+  {
+    "location": "./graphics/Thumbnails/CodematesThumbnail.png",
+    "size_bytes": "1.05065MB",
+    "width": "1080",
+    "height": "1920"
+  },
+  {
+    "location": "./graphics/Thumbnails/IdeaPhase1.png",
+    "size_bytes": "398748B",
+    "width": "1080",
+    "height": "1920"
+  },
+  {
+    "location": "./graphics/Thumbnails/IdeaPhase2.png",
+    "size_bytes": "469237B",
+    "width": "1080",
+    "height": "1920"
+  }
+]
