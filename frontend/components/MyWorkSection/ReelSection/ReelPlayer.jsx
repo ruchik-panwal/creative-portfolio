@@ -1,19 +1,22 @@
 "use client";
 
 import Script from "next/script";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState, useRef } from "react";
 import { FaLink } from "react-icons/fa6";
+import {
+  animateReelHover,
+  animateReelActive,
+} from "../../animations/ReelAnimation"; // Update path if needed
 
 export function ReelPlayer({ index, reels }) {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(true); // Initial page load stays muted
   const [prevIndex, setPrevIndex] = useState(index);
 
-  // Reset to muted when changing to a NEW video
+  // Unmute when changing to a NEW video (user clicked a button)
   if (index !== prevIndex) {
     setPrevIndex(index);
-    setIsMuted(true);
+    setIsMuted(false); 
   }
 
   const toggleMute = () => {
@@ -51,35 +54,30 @@ export function ReelPlayer({ index, reels }) {
 export function ReelButton({ reel, ind, reelNo, onClick }) {
   const containerRef = useRef();
   const hoverBgRef = useRef();
-  const descRef = useRef(); // Ref for the description wrapper
-  const tlRef = useRef();
+  const descRef = useRef();
 
   const { contextSafe } = useGSAP({ scope: containerRef });
 
-  // 1. Hover Animation (Background)
+  // 1. Move isActive out so it can be used in the JSX and the hook
+  const isActive = reelNo === ind;
+
+  // 2. Hover Animation (Background) triggered via contextSafe
   const toggleHover = contextSafe((isEntering) => {
-    gsap.to(hoverBgRef.current, {
-      width: isEntering ? "100%" : "0%",
-      duration: 0.5,
-      ease: "power2.inOut",
-    });
+    animateReelHover(hoverBgRef.current, isEntering);
   });
 
+  // 3. Active State Animation
   useGSAP(() => {
-    const isActive = reelNo === ind;
-
-    gsap.to(descRef.current, {
-      height: isActive ? "auto" : 0,
-      opacity: isActive ? 1 : 0,
-      duration: 0.5,
-      ease: "power3.inOut",
-    });
-  }, [reelNo, ind]);
+    animateReelActive(descRef.current, isActive);
+  }, [isActive]); // Listen to the extracted variable
 
   return (
     <div
       ref={containerRef}
-      className="relative bg-[#1D1D1D] w-full px-4 flex flex-col rounded-[10px] text-foreground overflow-hidden cursor-pointer shrink-0"
+      // Apply slight white background if active, else default dark background
+      className={`relative w-full px-4 flex flex-col rounded-[10px] text-foreground overflow-hidden cursor-pointer shrink-0 transition-colors duration-300 ${
+        isActive ? "bg-[#383737]" : "bg-[#1D1D1D]"
+      }`}
       onClick={onClick}
       onMouseEnter={() => toggleHover(true)}
       onMouseLeave={() => toggleHover(false)}
@@ -95,15 +93,19 @@ export function ReelButton({ reel, ind, reelNo, onClick }) {
         <div className="truncate text-3xl font-light tracking-tight">
           {reel.title}
         </div>
-        <a
-          href={reel.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          className="p-2 hover:scale-110 transition-transform"
-        >
-          <FaLink className="text-xl" />
-        </a>
+
+        {/* Render link button ONLY if reel.link exists and is not an empty string */}
+        {reel.link && reel.link.trim() !== "" && (
+          <a
+            href={reel.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="p-2 hover:scale-110 transition-transform flex gap-1 justify-center items-center social-link"
+          >
+            <FaLink className="text-xl" />
+          </a>
+        )}
       </div>
 
       <div

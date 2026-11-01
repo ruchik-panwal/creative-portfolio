@@ -5,7 +5,7 @@ const Reels = [
     link: "https://www.instagram.com/csikjsce/reel/DNiC2OJIH61/",
     selected: false,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis quam nec fringilla posuere. Phasellus eu lorem non est luctus viverra. Pellentesque sollicitudin vitae magna a sollicitudin. Nam in mauris et augue volutpat laoreet. Vivamus tempus diam ante, quis accumsan odio lobortis in. Fusce id auctor tellus. Praesent ullamcorper congue venenatis. Nunc facilisis, dui ac faucibus porta, arcu lacus faucibus arcu, sed faucibus magna metus eu odio. ",
+      "My first real video project! I made this to promote CSI-KJSCE's flagship event, 'Road to Programming'. The biggest challenge here was the crazy deadline. I had to shoot, edit, and deliver the final video in just 24 hours. It really taught me how to work fast without dropping the quality.",
   },
   {
     title: "Codemates",
@@ -13,7 +13,7 @@ const Reels = [
     link: "https://www.instagram.com/csikjsce/reel/DPoftoNjAwF/",
     selected: false,
     description:
-      "Proin faucibus in nunc at rutrum. Cras tincidunt eu leo ac dictum. Curabitur quis viverra felis. Quisque accumsan ante ante, ac condimentum ligula convallis non. Quisque in mattis nisl, a dictum velit. Suspendisse vehicula urna sed nisl ultrices elementum. Quisque in sem bibendum, tincidunt libero non, pulvinar sapien. Sed a mi dolor. Integer condimentum, justo eget eleifend fringilla, justo nulla sodales tortor, convallis tristique lacus dolor vitae ligula. Phasellus vehicula, dui eu ultrices elementum, tortor sapien pellentesque augue, in vehicula lacus quam sit amet nibh. Cras lobortis ex in velit fermentum, non interdum nulla consectetur. Vestibulum convallis placerat augue, ut cursus ligula efficitur id. Quisque at gravida turpis. .",
+      "This one holds a special place for me. Instead of looking up references, I built the whole thing from scratch—just me, my storyboard, and my camera. While I can see room for improvement now, directing and shooting everything myself was a huge learning experience that helped me find my own style.",
   },
   {
     title: "Idea Hackathon Teaser",
@@ -21,23 +21,23 @@ const Reels = [
     link: "https://www.instagram.com/csikjsce/reel/DUpq6kOigcF/",
     selected: false,
     description:
-      "Cras imperdiet felis sit amet lacus laoreet, sed consectetur orci venenatis. Fusce neque ex, bibendum sed sagittis eget, mollis ac nisi. Phasellus in ipsum magna. Aliquam odio orci, egestas eu pulvinar at, convallis in nunc. Nunc efficitur blandit imperdiet. Sed rhoncus lectus diam, ac consequat nunc varius vitae. Sed purus odio, fermentum eget elementum eget, mollis quis ipsum. Proin sit amet bibendum elit, pharetra venenatis odio. Mauris congue aliquam leo, in dignissim ligula dignissim quis. Mauris eget vulputate ligula",
+      "A teaser I made to build hype for the big IDEA Hackathon. All the 3D elements were modeled and animated entirely in Blender. After that, I took it into DaVinci Resolve for post-processing and sound design to give it a cinematic, tech-heavy feel.",
   },
   {
-    title: "Idea Hackathon Phase One ",
+    title: "Idea Hackathon Phase One",
     hostId: "nOYY5V1O",
     link: "https://www.instagram.com/csikjsce/reel/DVQ0T_MFSQJ/",
     selected: false,
     description:
-      "Aenean et suscipit mi. Etiam et risus vel neque aliquam varius. Etiam sed elit imperdiet, mattis est sed, efficitur velit. Suspendisse luctus, ligula vitae sagittis lacinia, quam lorem ornare magna, euismod posuere leo nisi ut quam. Pellentesque sem magna, faucibus ut mi ac, bibendum porta elit. Mauris ornare rutrum velit, id varius elit pellentesque at. Ut dictum, ante et vehicula euismod, velit libero sagittis augue, eget dignissim libero enim vitae arcu. In tempor enim sem, non viverra dui venenatis in. Vestibulum finibus consectetur blandit. Cras vel justo sed ligula malesuada aliquet. Duis non imperdiet ipsum. Duis porttitor purus et lorem faucibus tincidunt. .",
+      "IDEA 2.0 had four phases, and this reel was made to explain the first one. The challenge here was that the event details kept changing while we were working on it. I had to figure out creative ways to seamlessly add the final dates and prize pool text during post-production.",
   },
   {
-    title: "Idea Hackathon Phase Two ",
+    title: "Idea Hackathon Phase Two",
     hostId: "zX0Eb59J",
-    link: "https://www.instagram.com/csikjsce/reel/zX0Eb59J/",
+    link: "",
     selected: false,
     description:
-      "Aenean et suscipit mi. Etiam et risus vel neque aliquam varius. Etiam sed elit imperdiet, mattis est sed, efficitur velit. Suspendisse luctus, ligula vitae sagittis lacinia, quam lorem ornare magna, euismod posuere leo nisi ut quam. Pellentesque sem magna, faucibus ut mi ac, bibendum porta elit. Mauris ornare rutrum velit, id varius elit pellentesque at. Ut dictum, ante et vehicula euismod, velit libero sagittis augue, eget dignissim libero enim vitae arcu. In tempor enim sem, non viverra dui venenatis in. Vestibulum finibus consectetur blandit. Cras vel justo sed ligula malesuada aliquet. Duis non imperdiet ipsum. Duis porttitor purus et lorem faucibus tincidunt. .",
+      "Probably my favorite and most polished piece of work yet. This was originally meant to explain Phase Two, but due to time constraints and management shifts, it never actually got uploaded. I still keep it in my portfolio because I'm really proud of how the visuals and the color grading turned out.",
   },
 ];
 

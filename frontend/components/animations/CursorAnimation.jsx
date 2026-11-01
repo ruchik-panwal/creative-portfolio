@@ -24,16 +24,15 @@ export const initCursorAnimation = (
   });
 
   let hasMoved = false;
-  
-  // NEW: Keep track of the active timeline so we can kill it completely
-  let hoverTl = null; 
+
+  // Keep track of the active timeline so we can kill it completely
+  let hoverTl = null;
 
   // 2. Hover Effect Definitions
   const effects = {
     socialLink: {
       enter: (target) => {
-        // Kill the previous timeline entirely so onComplete doesn't fire
-        if (hoverTl) hoverTl.kill(); 
+        if (hoverTl) hoverTl.kill();
 
         gsap.killTweensOf(textElement);
         gsap.killTweensOf(outerElement, "width,backgroundColor,borderColor");
@@ -41,57 +40,135 @@ export const initCursorAnimation = (
 
         const hoverText = target.getAttribute("data-cursor") || "visit";
         textElement.textContent = hoverText;
-        
-        gsap.set(textElement, { y: 15, opacity: 0, display: "inline-block", color: "#000" });
+
+        gsap.set(textElement, {
+          y: 15,
+          opacity: 0,
+          display: "inline-block",
+          color: "#000",
+        });
         gsap.to(innerElement, { opacity: 0, duration: 0.1 });
 
-        // Assign to hoverTl
         hoverTl = gsap.timeline();
-        hoverTl.to(outerElement, {
-          backgroundColor: "#ffffff",
-          borderColor: "transparent",
-          width: 72,
-          duration: 0.2,
-          ease: "power3.out",
-        }).to(textElement, {
-          y: 0,
-          opacity: 1,
-          duration: 0.1,
-          ease: "power3.out",
-        });
+        hoverTl
+          .to(outerElement, {
+            backgroundColor: "#ffffff",
+            borderColor: "transparent",
+            width: 72,
+            duration: 0.2,
+            ease: "power3.out",
+          })
+          .to(textElement, {
+            y: 0,
+            opacity: 1,
+            duration: 0.1,
+            ease: "power3.out",
+          });
       },
       leave: () => {
-        // Kill the previous timeline entirely
         if (hoverTl) hoverTl.kill();
 
         gsap.killTweensOf(textElement);
         gsap.killTweensOf(outerElement, "width,backgroundColor,borderColor");
         gsap.killTweensOf(innerElement, "opacity");
 
-        // Assign to hoverTl
         hoverTl = gsap.timeline({
           onComplete: () => {
             textElement.textContent = "";
             gsap.set(textElement, { display: "none" });
           },
         });
-        
-        hoverTl.to(textElement, {
+
+        hoverTl
+          .to(textElement, {
+            y: 15,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power3.in",
+          })
+          .to(
+            outerElement,
+            {
+              width: 32,
+              backgroundColor: "transparent",
+              borderColor: "#ffffff",
+              duration: 0.3,
+              ease: "power3.out",
+            },
+            "-=0.1",
+          );
+
+        gsap.to(innerElement, { opacity: 1, duration: 0.2 });
+      },
+    },
+    cursorDrag: {
+      enter: () => {
+        if (hoverTl) hoverTl.kill();
+
+        gsap.killTweensOf(textElement);
+        gsap.killTweensOf(outerElement, "width,height,backgroundColor,borderColor");
+        gsap.killTweensOf(innerElement, "opacity");
+
+        textElement.textContent = "Drag";
+
+        gsap.set(textElement, {
           y: 15,
           opacity: 0,
-          duration: 0.2,
-          ease: "power3.in",
-        }).to(
-          outerElement,
-          {
-            width: 32,
-            backgroundColor: "transparent",
-            borderColor: "#ffffff",
-            duration: 0.3,
+          display: "inline-block",
+          color: "#000",
+        });
+        gsap.to(innerElement, { opacity: 0, duration: 0.1 });
+
+        hoverTl = gsap.timeline();
+        hoverTl
+          .to(outerElement, {
+            backgroundColor: "#ffffff",
+            borderColor: "transparent",
+            width: 100,
+            height: 100,
+            duration: 0.2,
             ease: "power3.out",
+          })
+          .to(textElement, {
+            y: 0,
+            opacity: 1,
+            duration: 0.1,
+            ease: "power3.out",
+          });
+      },
+      leave: () => {
+        if (hoverTl) hoverTl.kill();
+
+        gsap.killTweensOf(textElement);
+        gsap.killTweensOf(outerElement, "width,height,backgroundColor,borderColor");
+        gsap.killTweensOf(innerElement, "opacity");
+
+        hoverTl = gsap.timeline({
+          onComplete: () => {
+            textElement.textContent = "";
+            gsap.set(textElement, { display: "none" });
           },
-          "-=0.1",
-        );
+        });
+
+        hoverTl
+          .to(textElement, {
+            y: 15,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power3.in",
+          })
+          .to(
+            outerElement,
+            {
+              width: 32,
+              height: 32,
+              backgroundColor: "transparent",
+              borderColor: "#ffffff",
+              duration: 0.3,
+              ease: "power3.out",
+            },
+            "-=0.1",
+          );
 
         gsap.to(innerElement, { opacity: 1, duration: 0.2 });
       },
@@ -112,9 +189,8 @@ export const initCursorAnimation = (
           duration: 0.2,
           ease: "power3.out",
         });
-      }
+      },
     },
-    // NEW: Shrinks the inner dot
     dotShrink: {
       enter: () => {
         gsap.killTweensOf(innerElement, "scale");
@@ -131,13 +207,13 @@ export const initCursorAnimation = (
           duration: 0.2,
           ease: "power3.out",
         });
-      }
+      },
     },
     increaseCircle: {
       enter: () => {
         gsap.killTweensOf(outerElement, "scale");
         gsap.to(outerElement, {
-          scale: 3, 
+          scale: 3,
           duration: 1,
           ease: "power3.out",
         });
@@ -145,28 +221,25 @@ export const initCursorAnimation = (
       leave: () => {
         gsap.killTweensOf(outerElement, "scale");
         gsap.to(outerElement, {
-          scale: 1, 
+          scale: 1,
           duration: 0.3,
           ease: "power3.out",
         });
-      }
-    }
+      },
+    },
   };
 
-  // 3. Event Handlers
   // 3. Event Handlers
   const handleMouseMove = (e) => {
     if (document.body.classList.contains("is-loading")) return;
 
     if (!hasMoved) {
       hasMoved = true;
-      
-      // Check exactly what element the mouse is resting on right now
+
       const target = e.target;
       const isOverCursorShrink = target.closest(".cursor-shrink");
       const isOverDotShrink = target.closest(".dot-shrink");
 
-      // Animate the outer circle: stay at scale 0 if over the hero, otherwise scale 1
       gsap.to(outerElement, {
         scale: isOverCursorShrink ? 0 : 1,
         opacity: 1,
@@ -174,7 +247,6 @@ export const initCursorAnimation = (
         ease: "power3.out",
       });
 
-      // Animate the inner dot: stay at scale 0 if over the hero, otherwise scale 1
       gsap.to(innerElement, {
         scale: isOverDotShrink ? 0 : 1,
         opacity: 1,
@@ -182,7 +254,7 @@ export const initCursorAnimation = (
         ease: "power3.out",
       });
     }
-    
+
     setXInner(e.clientX);
     setYInner(e.clientY);
     xMoveOuter(e.clientX);
@@ -191,18 +263,63 @@ export const initCursorAnimation = (
 
   const handleMouseOver = (e) => {
     const target = e.target;
-    if (target.closest(".social-link")) effects.socialLink.enter(target.closest(".social-link"));
-    if (target.closest(".cursor-shrink")) effects.cursorShrink.enter();
-    if (target.closest(".increase-circle")) effects.increaseCircle.enter();
-    if (target.closest(".dot-shrink")) effects.dotShrink.enter();
+    const related = e.relatedTarget;
+
+    const socialTarget = target.closest(".social-link");
+    if (socialTarget && (!related || !related.closest(".social-link"))) {
+      effects.socialLink.enter(socialTarget);
+    }
+    
+    const dragTarget = target.closest(".cursor-drag");
+    if (dragTarget && (!related || !related.closest(".cursor-drag"))) {
+      effects.cursorDrag.enter();
+    }
+
+    const shrinkTarget = target.closest(".cursor-shrink");
+    if (shrinkTarget && (!related || !related.closest(".cursor-shrink"))) {
+      effects.cursorShrink.enter();
+    }
+
+    const increaseTarget = target.closest(".increase-circle");
+    if (increaseTarget && (!related || !related.closest(".increase-circle"))) {
+      effects.increaseCircle.enter();
+    }
+
+    const dotTarget = target.closest(".dot-shrink");
+    if (dotTarget && (!related || !related.closest(".dot-shrink"))) {
+      effects.dotShrink.enter();
+    }
   };
 
   const handleMouseOut = (e) => {
     const target = e.target;
-    if (target.closest(".social-link")) effects.socialLink.leave();
-    if (target.closest(".cursor-shrink")) effects.cursorShrink.leave();
-    if (target.closest(".increase-circle")) effects.increaseCircle.leave();
-    if (target.closest(".dot-shrink")) effects.dotShrink.leave();
+    const related = e.relatedTarget;
+
+    const socialTarget = target.closest(".social-link");
+    // Only trigger leave if we are actually moving completely out of the container
+    if (socialTarget && (!related || !socialTarget.contains(related))) {
+      effects.socialLink.leave();
+    }
+
+    const dragTarget = target.closest(".cursor-drag");
+    if (dragTarget && (!related || !dragTarget.contains(related))) {
+      effects.cursorDrag.leave();
+    }
+
+    const shrinkTarget = target.closest(".cursor-shrink");
+    if (shrinkTarget && (!related || !shrinkTarget.contains(related))) {
+      effects.cursorShrink.leave();
+    }
+
+    const increaseTarget = target.closest(".increase-circle");
+    if (increaseTarget && (!related || !increaseTarget.contains(related))) {
+      effects.increaseCircle.leave();
+    }
+
+    const dotTarget = target.closest(".dot-shrink");
+    if (dotTarget && (!related || !dotTarget.contains(related))) {
+      effects.dotShrink.leave();
+    }
   };
 
   // 4. Listeners

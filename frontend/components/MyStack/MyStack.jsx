@@ -39,7 +39,7 @@ export default function MyStack() {
           </div>
 
           {/* Right Side: Option Wheel */}
-          <div className="h-full w-1/2 relative">
+          <div className="h-full w-1/2 relative cursor-drag select-none">
             <OptionWheel
               items={STACK_ITEMS}
               defaultSelected={2}
