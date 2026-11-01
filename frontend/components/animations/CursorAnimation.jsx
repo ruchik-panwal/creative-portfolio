@@ -54,6 +54,7 @@ export const initCursorAnimation = (
           .to(outerElement, {
             backgroundColor: "#ffffff",
             borderColor: "transparent",
+              height: 32,
             width: 72,
             duration: 0.2,
             ease: "power3.out",
@@ -89,6 +90,7 @@ export const initCursorAnimation = (
           .to(
             outerElement,
             {
+              height: 32,
               width: 32,
               backgroundColor: "transparent",
               borderColor: "#ffffff",

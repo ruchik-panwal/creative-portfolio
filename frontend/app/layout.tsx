@@ -10,7 +10,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Creative Portfolio",
+  title: "Ruchik Panwal",
   description: "My personal portfolio",
 };
 

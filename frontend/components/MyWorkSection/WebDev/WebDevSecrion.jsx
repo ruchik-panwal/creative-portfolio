@@ -8,10 +8,17 @@ import Script from "next/script";
 
 // 1. Create your data object here
 const WEB_PROJECTS = [
-{
-    id: "WDezG8oX", // Replace with your actual media ID
+  {
+    id: "WDezG8oX",
     title: "Spatialflow Portfolio",
-    description: "A complete portfolio and booking platform built for an interior photographer. This was my first end-to-end project where I handled everything from designing the UI from scratch to integrating a client booking system and deploying it with a custom professional domain.",
+    description:
+      "A complete portfolio and booking platform built for an interior photographer. This was my first end-to-end project where I handled everything from designing the UI from scratch to integrating a client booking system and deploying it with a custom professional domain.",
+  },
+  {
+    id: "KOW8V4rD", 
+    title: "My Creative Portfolio",
+    description:
+      "A visually driven personal portfolio designed to bridge frontend engineering and digital storytelling. It features fluid micro-animations, cinematic layouts, and interactive 3D elements to showcase my work across full-stack development, visual design, and video production.",
   },
 ];
 
@@ -23,17 +30,19 @@ export default function WebDevSection() {
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + WEB_PROJECTS.length) % WEB_PROJECTS.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + WEB_PROJECTS.length) % WEB_PROJECTS.length,
+    );
   };
 
   const currentProject = WEB_PROJECTS[currentIndex];
 
   return (
     <div className="w-full h-full flex justify-center items-center gap-4 p-3">
-      <Controls 
-        project={currentProject} 
-        onNext={handleNext} 
-        onPrev={handlePrev} 
+      <Controls
+        project={currentProject}
+        onNext={handleNext}
+        onPrev={handlePrev}
       />
 
       <div className="bg-sky-100 h-full aspect-video shrink-0 rounded-[20px] overflow-hidden relative cursor-shrink dot-shrink">
@@ -43,8 +52,8 @@ export default function WebDevSection() {
         />
 
         <cinema8-player
-          key={currentProject.id} 
-          media-id={currentProject.id} 
+          key={currentProject.id}
+          media-id={currentProject.id}
           style={{ width: "100%", height: "100%" }}
           autoplay="true"
           controls="false"
@@ -101,30 +110,28 @@ function Controls({ project, onNext, onPrev }) {
         <h2 className="text-white text-5xl font-black tracking-[-6%] mb-4">
           {project.title}
         </h2>
-        <p className="text-gray-400 text-lg leading-6">
-          {project.description}
-        </p>
+        <p className="text-gray-400 text-lg leading-6">{project.description}</p>
       </div>
-      
+
       {/* Buttons */}
       <div className="flex gap-4">
         {/* Exact same classes you provided */}
-        <AnimatedButton 
+        <AnimatedButton
           onClick={onPrev}
           className="bg-[#1D1D1D] rounded-[20px] w-70 h-30 flex justify-center items-center text-5xl cursor-shrink"
         >
           <FaArrowLeftLong />
         </AnimatedButton>
-        
+
         {/* Rendered as div to match your exact code structure */}
-        <AnimatedButton 
+        <AnimatedButton
           as="div"
           className="h-full w-full bg-[#1D1D1D] rounded-[20px] flex justify-center items-center text-3xl cursor-shrink cursor-pointer"
         >
           Visit Site
         </AnimatedButton>
-        
-        <AnimatedButton 
+
+        <AnimatedButton
           onClick={onNext}
           className="bg-[#1D1D1D] rounded-[20px] w-70 h-30 flex justify-center items-center text-5xl cursor-shrink"
         >

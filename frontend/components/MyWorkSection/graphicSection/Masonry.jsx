@@ -20,7 +20,6 @@ const allImages = [
   { src: "/graphics/Posters/GeminiCsi.png", width: 595, height: 842, category: "Poster" },
   { src: "/graphics/Thumbnails/CodematesThumbnail.png", width: 1080, height: 1920, category: "Thumbnails" },
   { src: "/graphics/Thumbnails/IdeaPhase1.png", width: 1080, height: 1920, category: "Thumbnails" },
-  { src: "/graphics/Thumbnails/IdeaPhase2.png", width: 1080, height: 1920, category: "Thumbnails" }
 ];
 
 export default function Masonry({ activeFilter }) {

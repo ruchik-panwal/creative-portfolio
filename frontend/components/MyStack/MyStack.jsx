@@ -33,7 +33,7 @@ export default function MyStack() {
                 height={1200}
                 // max-w-none removes the width limit.
                 // Adjust w-[900px] / h-[900px] or the -bottom/-left values to scale/move it exactly how you want.
-                className="object-contain absolute max-w-none w-320 h-320 bottom-[-50%] left-[-20%] "
+                className="object-contain absolute max-w-none w-7xl h-320 bottom-[-50%] left-[-20%] "
               />
             )}
           </div>
