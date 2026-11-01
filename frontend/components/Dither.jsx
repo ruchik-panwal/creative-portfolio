@@ -216,7 +216,7 @@ export default function AnimatedDitherEffect({
       ref={containerRef}
       // ADDED: cursor-shrink, dot-shrink, and cursor-none
       className={`w-full h-full overflow-hidden touch-none cursor-none ${
-        isLoaded ? "cursor-shrink dot-shrink rounded-[20px]" : "pointer-events-none rounded-[0px]"
+        isLoaded ? "cursor-shrink dot-shrink rounded-[20px]" : "pointer-events-none rounded-none"
       }`}
       onPointerEnter={(e) => {
         mouseRef.current.active = true;
