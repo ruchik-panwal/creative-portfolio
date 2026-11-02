@@ -5,7 +5,8 @@ export default function Footer() {
     { name: "> instagram", link: "https://www.instagram.com/ruchik_35/" },
     { name: "> github", link: "https://github.com/ruchik-panwal/" },
     { name: "> linkedin", link: "https://www.linkedin.com/in/ruchikpanwal/" },
-    { name: "> email", link: "https://www.instagram.com/ruchik_35/" },
+    // Added mailto: prefix here
+    { name: "> email", link: "mailto:ruchik.panwal@gmail.com" }, 
   ];
 
   return (
@@ -26,7 +27,12 @@ export default function Footer() {
 
 function PersonalLinks({ app }) {
   function siteDirect() {
-    window.open(app.link, "_blank");
+    // Check if the link is an email link
+    if (app.link.startsWith("mailto:")) {
+      window.location.href = app.link;
+    } else {
+      window.open(app.link, "_blank");
+    }
   }
 
   return (
