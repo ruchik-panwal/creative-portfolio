@@ -11,12 +11,14 @@ const WEB_PROJECTS = [
   {
     id: "WDezG8oX",
     title: "Spatialflow Portfolio",
+    link: "https://spatialflow.in/",
     description:
       "A complete portfolio and booking platform built for an interior photographer. This was my first end-to-end project where I handled everything from designing the UI from scratch to integrating a client booking system and deploying it with a custom professional domain.",
   },
   {
     id: "KOW8V4rD", 
     title: "My Creative Portfolio",
+    link: "https://ruchik.vercel.app/",
     description:
       "A visually driven personal portfolio designed to bridge frontend engineering and digital storytelling. It features fluid micro-animations, cinematic layouts, and interactive 3D elements to showcase my work across full-stack development, visual design, and video production.",
   },
@@ -45,7 +47,7 @@ export default function WebDevSection() {
         onPrev={handlePrev}
       />
 
-      <div className="bg-sky-100 h-full aspect-video shrink-0 rounded-[20px] overflow-hidden relative cursor-shrink dot-shrink">
+      <div className="bg-[#000000] h-full aspect-video shrink-0 rounded-[20px] overflow-hidden relative cursor-shrink dot-shrink">
         <Script
           src="https://static-01.cinema8.com/embed/player.js"
           strategy="lazyOnload"
@@ -65,8 +67,8 @@ export default function WebDevSection() {
   );
 }
 
-// Strictly animation wrapper - Does not alter any of your custom sizing
-function AnimatedButton({ children, onClick, className, as: Tag = "button" }) {
+// Added ...props here to allow passing href, target, etc.
+function AnimatedButton({ children, onClick, className, as: Tag = "button", ...props }) {
   const containerRef = useRef(null);
   const hoverBgRef = useRef(null);
 
@@ -87,8 +89,8 @@ function AnimatedButton({ children, onClick, className, as: Tag = "button" }) {
       onClick={onClick}
       onMouseEnter={() => toggleHover(true)}
       onMouseLeave={() => toggleHover(false)}
-      // We append relative and overflow-hidden just to contain the GSAP background
       className={`relative overflow-hidden ${className}`}
+      {...props} // Spread the rest of the props (like href) onto the tag
     >
       <div
         ref={hoverBgRef}
@@ -115,7 +117,6 @@ function Controls({ project, onNext, onPrev }) {
 
       {/* Buttons */}
       <div className="flex gap-4">
-        {/* Exact same classes you provided */}
         <AnimatedButton
           onClick={onPrev}
           className="bg-[#1D1D1D] rounded-[20px] w-70 h-30 flex justify-center items-center text-5xl cursor-shrink"
@@ -123,9 +124,12 @@ function Controls({ project, onNext, onPrev }) {
           <FaArrowLeftLong />
         </AnimatedButton>
 
-        {/* Rendered as div to match your exact code structure */}
+        {/* Changed as="div" to as="a" and added href/target props */}
         <AnimatedButton
-          as="div"
+          as="a"
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="h-full w-full bg-[#1D1D1D] rounded-[20px] flex justify-center items-center text-3xl cursor-shrink cursor-pointer"
         >
           Visit Site
